@@ -21,7 +21,7 @@ const Table = ({ data, setData, deleteRow }) => {
             if(id === data.id && text) {
                 return {
                     ...data,
-                    text: text
+                    title: text
                 }
             }
             return data;
@@ -41,7 +41,7 @@ const Table = ({ data, setData, deleteRow }) => {
                         data.map(item => (
                             <tr className='descr-items' key={item.id}>
                                 <td className='descr-item descr-item__id'>{item.id}</td>
-                                <td className='descr-item descr-item__text'>{item.text}</td>
+                                <td className='descr-item descr-item__text'>{item.title}</td>
                                 <td className='descr-item'>
                                     {
                                         !item.bool

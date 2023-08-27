@@ -34,20 +34,30 @@
 
 .descr-item__edit {
     cursor: pointer;
-    width: 30px;
+    width: 30%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.descr-item__edit:hover {
+    background-color: greenyellow;
+    border: 1px solid yellowgreen;
+}
+
 .descr-item__remove {
     cursor: pointer;
-    width: 30px;
+    width: 30%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.descr-item__remove:hover {
+    background-color: red;
+    border: 1px solid #e26a6a;
 }
 
 .editor-menu {

@@ -3,14 +3,12 @@ import React from 'react';
 const RowIcons = ({item, changeBool, deleteRow}) => {
     return (
         <div className='descr-item__icons'>
-            <img className='descr-item__edit' 
+            <button className='descr-item__edit' 
                 onClick={ () => changeBool(item.id, item.bool)}
-                src={ item.edit } 
-                alt="" />
-            <img className='descr-item__remove'
+                src={ item.edit }>EDIT</button>
+            <button className='descr-item__remove'
                 onClick={() => deleteRow(item.id)} 
-                src={item.delete}
-                alt=''/>
+                src={item.delete}>DEL</button>
         </div>
     );
 };

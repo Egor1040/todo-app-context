@@ -1,19 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import shortid from 'shortid';
 import AddHeader from './components/AddHeader/AddHeader';
 import AddTable from './components/AddTable/AddTable';
 
 function App() {
-    const [data, setData] = useState([
-        {id: 'K36Y2LhNS', text: 'JS', edit: 'img/icons8-edit-30.png', delete: 'img/icons8-close-30.png', bool: false},
-        {id: 'oO7Z74kGA', text: 'React', edit: 'img/icons8-edit-30.png', delete: 'img/icons8-close-30.png', bool: false},
-        {id: 'Q1rvGl3tj', text: 'jQuery', edit: 'img/icons8-edit-30.png', delete: 'img/icons8-close-30.png', bool: false}
-    ]);
+    const [data, setData] = useState([]);
 
+    useEffect(() => {
+        fetch('https://jsonplaceholder.typicode.com/posts')
+            .then(response => response.json())
+            .then(resp => setData(resp))
+    }, [setData])
+
+    console.log(data)
     const addRow = (text) => {
         if(text) {
-            const newRow = { id: shortid.generate(), text: text, edit: 'img/icons8-edit-30.png', delete: 'img/icons8-close-30.png', bool: false};
+            const newRow = { id: shortid.generate(), title: text, edit: 'img/icons8-edit-30.png', delete: 'img/icons8-close-30.png', bool: false};
             setData([...data, newRow]);
         }
     };
