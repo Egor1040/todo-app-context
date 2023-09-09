@@ -1,0 +1,15 @@
+.change-theme {
+    position: absolute;
+    right: 40px;
+    top: 20px;
+    padding: 10px;
+    background-color: #333133;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.active-theme {
+    color: black;
+    background-color: darkgray;
+}

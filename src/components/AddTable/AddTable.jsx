@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import './AddTable.css';
 import RowIcons from './RowIcons';
 import EditorInput from './EditorInput';
+import MyContext from '../../context/MyContext';
 
-const Table = ({ data, setData, deleteRow }) => {
+const Table = ({ setData, deleteRow }) => {
+    const contextData = useContext(MyContext);
+
     const changeBool = (id,currentBool) => {
-        setData(data.map(row => {
+        setData(contextData.map(row => {
             if(id === row.id) {
                 return {
                     ...row,
@@ -17,7 +20,7 @@ const Table = ({ data, setData, deleteRow }) => {
     }
 
     const editRow = (id, text) => {
-        setData(data.map(data => {
+        setData(contextData.map(data => {
             if(id === data.id && text) {
                 return {
                     ...data,
@@ -36,9 +39,9 @@ const Table = ({ data, setData, deleteRow }) => {
         <table className='main-table'>
             <tbody className='table-desc'>
                 {
-                    data.length > 0 
+                    contextData.length > 0 
                         ?
-                        data.map(item => (
+                        contextData.map(item => (
                             <tr className='descr-items' key={item.id}>
                                 <td className='descr-item descr-item__id'>{item.id}</td>
                                 <td className='descr-item descr-item__text'>{item.title}</td>

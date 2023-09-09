@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './AddHeader.css';
 
-const AddHeader = ({addRow}) => {
+const AddHeader = ({ addRow }) => {
     const [inputValue, setInputValue] = useState('');
 
     return (
